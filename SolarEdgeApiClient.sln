@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClient", "ApiClient\ApiClient.csproj", "{BDE25676-6A3F-418E-8589-F89E69C24DAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClientTests", "ApiClientTests\ApiClientTests.csproj", "{3D488F2F-9343-44C5-8863-CFA0E457069C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{91344762-CAE2-4329-9002-1D86CEB20CAE}"
+	ProjectSection(SolutionItems) = preProject
+		ReleaseNotes.md = ReleaseNotes.md
+		README.md = README.md
+		LICENSE = LICENSE
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BDE25676-6A3F-418E-8589-F89E69C24DAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE25676-6A3F-418E-8589-F89E69C24DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE25676-6A3F-418E-8589-F89E69C24DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE25676-6A3F-418E-8589-F89E69C24DAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D488F2F-9343-44C5-8863-CFA0E457069C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D488F2F-9343-44C5-8863-CFA0E457069C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D488F2F-9343-44C5-8863-CFA0E457069C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D488F2F-9343-44C5-8863-CFA0E457069C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
