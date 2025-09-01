@@ -12,4 +12,7 @@ public class Uris
     
     [JsonPropertyName("OVERVIEW")]
     public string Overview { get; set; } = string.Empty;
+    
+    [JsonPropertyName("SITE_IMAGE")]
+    public string SiteImage { get; set; } = string.Empty;
 }

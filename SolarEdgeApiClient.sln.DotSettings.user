@@ -4,5 +4,6 @@
     &lt;TestId&gt;xUnit::3D488F2F-9343-44C5-8863-CFA0E457069C::net8.0::ApiClientTests.SolarEdgeClientTests.ConstructorShouldNotThrow&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::3D488F2F-9343-44C5-8863-CFA0E457069C::net8.0::ApiClientTests.SolarEdgeClientTests.Constructor_WithNullApiKey_ShouldThrowArgumentNullException&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::3D488F2F-9343-44C5-8863-CFA0E457069C::net8.0::ApiClientTests.SolarEdgeClientTests.GetSiteDetailsAsync_WithValidSiteId_ShouldReturnSiteDetails&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::3D488F2F-9343-44C5-8863-CFA0E457069C::net8.0::ApiClientTests.SolarEdgeClientTests.GetSitesListShouldRetrieveSite&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

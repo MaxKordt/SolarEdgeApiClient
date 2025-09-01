@@ -31,13 +31,24 @@ public class SolarEdgeClient
         
         var jsonContent = await response.Content.ReadAsStringAsync();
         
-        // Debug: Console output um die echte Response zu sehen
-        Console.WriteLine("API Response:");
-        Console.WriteLine(jsonContent);
-        
         var siteDetailsResponse = JsonSerializer.Deserialize<SiteDetailsResponse>(jsonContent, _jsonOptions);
         
         return siteDetailsResponse?.Details ?? new SiteDetails();
+    }
+    
+    // Site Details abrufen
+    public async Task<SiteDetails[]> GetSitesListAsync()
+    {
+        var response = await _httpClient.GetAsync($"sites/list?api_key={_apiKey}");
+        response.EnsureSuccessStatusCode();
+        
+        var jsonContent = await response.Content.ReadAsStringAsync();
+        
+        // TODO geht noch nicht. Ist doch sites das array und count ist eine art index?
+        
+        var siteDetailsResponse = JsonSerializer.Deserialize<SitesListResponse>(jsonContent, _jsonOptions);
+        
+        return siteDetailsResponse?.Sites ?? [];
     }
     
     // Test-Methode um zu prüfen ob API-Key funktioniert

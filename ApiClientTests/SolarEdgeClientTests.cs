@@ -29,4 +29,17 @@ public class SolarEdgeClientTests
         // Assert
         Assert.NotNull(details);
     }
+
+    [Fact]
+    public async Task GetSitesListShouldRetrieveSite()
+    {
+        // Arrange
+        var client = new SolarEdgeClient(_apiKey);
+
+        // Act
+        var details = await client.GetSitesListAsync();
+
+        // Assert
+        Assert.NotEmpty(details);
+    }
 }
