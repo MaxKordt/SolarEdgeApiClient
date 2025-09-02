@@ -1,8 +1,6 @@
-﻿using System;
-using System.Net.Http;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 using ApiClient.Models;
+using ApiClient.Responses;
 
 namespace ApiClient;
 
@@ -22,44 +20,46 @@ public class SolarEdgeClient
             WriteIndented = true,
             PropertyNameCaseInsensitive = true
         };
-        
+
         _httpClient.BaseAddress = new Uri("https://monitoringapi.solaredge.com/");
     }
-    
-    // Site Details abrufen
+
     public async Task<SiteDetails> GetSiteDetailsAsync(int siteId)
     {
         var response = await _httpClient.GetAsync($"site/{siteId}/details?api_key={_apiKey}");
         response.EnsureSuccessStatusCode();
-        
+
         var jsonContent = await response.Content.ReadAsStringAsync();
-        
+
         var siteDetailsResponse = JsonSerializer.Deserialize<SiteDetailsResponse>(jsonContent, _jsonOptions);
-        
+
         return siteDetailsResponse?.Details ?? new SiteDetails();
     }
-    
-    // Site Details abrufen
+
     public async Task<SiteDetails[]> GetSitesListAsync()
     {
         var response = await _httpClient.GetAsync($"sites/list?api_key={_apiKey}");
         response.EnsureSuccessStatusCode();
-        
+
         var jsonContent = await response.Content.ReadAsStringAsync();
-        
-        // TODO geht noch nicht. Ist doch sites das array und count ist eine art index?
-        
+
         var siteDetailsResponse = JsonSerializer.Deserialize<SitesListResponse>(jsonContent, _jsonOptions);
-        
+
         return siteDetailsResponse?.AssociatedSites.Sites ?? [];
     }
-    
-    // Test-Methode um zu prüfen ob API-Key funktioniert
-    public async Task<string> GetApiVersionAsync()
+
+    public async Task<SiteEnergy> GetSiteEnergyAsync(int siteId, RequestSpan requestSpan)
     {
-        var response = await _httpClient.GetAsync($"version/current?api_key={_apiKey}");
+        var request =
+            $"site/{siteId}/energy?timeUnit={requestSpan.TimeUnit.ToParam()}&startDate={requestSpan.StartDate.ToEnergyParam()}&endDate={requestSpan.EndDate.ToEnergyParam()}&api_key={_apiKey}";
+        var response = await _httpClient.GetAsync(request);
         response.EnsureSuccessStatusCode();
-        return await response.Content.ReadAsStringAsync();
+
+        var jsonContent = await response.Content.ReadAsStringAsync();
+
+        var siteDetailsResponse = JsonSerializer.Deserialize<SiteEnergyResponse>(jsonContent, _jsonOptions);
+
+        return siteDetailsResponse?.Energy ?? new SiteEnergy();
     }
 
     // Dispose Pattern für HttpClient

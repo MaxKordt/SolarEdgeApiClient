@@ -1,6 +1,7 @@
 using System.Text.Json.Serialization;
+using ApiClient.Models;
 
-namespace ApiClient.Models;
+namespace ApiClient.Responses;
 
 public record SitesListResponse
 {

@@ -5,7 +5,7 @@ namespace ApiClient.Models;
 public record SitesList
 {
     [JsonPropertyName("count")]
-    public int Count { get; set; }
+    public int Count { get; set; } = 0;
 
     [JsonPropertyName("site")]
     public SiteDetails[] Sites { get; set; } = [];
