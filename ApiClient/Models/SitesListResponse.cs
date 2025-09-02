@@ -4,11 +4,8 @@ namespace ApiClient.Models;
 
 public record SitesListResponse
 {
-    [JsonPropertyName("count")]
-    public int Count { get; set; }
-
-    [JsonPropertyName("site")]
-    public SiteDetails[] Sites { get; set; } = [];
+    [JsonPropertyName("sites")]
+    public SitesList AssociatedSites { get; set; } = new();
     
-    override public string ToString() => $"Sites retrieved: {Count}";
+    public override string ToString() => $"Associated Sites: {AssociatedSites.Sites.Length}";
 }

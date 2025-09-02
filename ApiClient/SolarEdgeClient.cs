@@ -51,7 +51,7 @@ public class SolarEdgeClient
         
         var siteDetailsResponse = JsonSerializer.Deserialize<SitesListResponse>(jsonContent, _jsonOptions);
         
-        return siteDetailsResponse?.Sites ?? [];
+        return siteDetailsResponse?.AssociatedSites.Sites ?? [];
     }
     
     // Test-Methode um zu prüfen ob API-Key funktioniert

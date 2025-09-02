@@ -58,4 +58,6 @@ public class SiteDetails
 
     [JsonPropertyName("publicSettings")]
     public PublicSettings PublicSettings { get; set; } = new();
+
+    public override string ToString() => Name;
 }

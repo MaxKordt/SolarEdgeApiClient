@@ -33,4 +33,6 @@ public record SiteLocation
     
     [JsonPropertyName("longitude")]
     public string Longitude { get; set; } = string.Empty;
+
+    public override string ToString() => Address;
 }

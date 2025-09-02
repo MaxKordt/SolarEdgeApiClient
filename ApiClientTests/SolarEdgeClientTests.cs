@@ -37,9 +37,9 @@ public class SolarEdgeClientTests
         var client = new SolarEdgeClient(_apiKey);
 
         // Act
-        var details = await client.GetSitesListAsync();
+        var sites = await client.GetSitesListAsync();
 
         // Assert
-        Assert.NotEmpty(details);
+        Assert.NotEmpty(sites);
     }
 }

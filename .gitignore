@@ -354,3 +354,9 @@ MigrationBackup/
 *.env
 
 .DS_Store
+
+ApiClient/obj/
+
+ApiClientTests/obj/
+
+ApiClientTests/bin/Debug/net8.0/
